@@ -1,0 +1,38 @@
+<html>
+  <head><title>Lyst Demo</title></head>
+  <link rel="stylesheet" href="/styles.css" />
+  <body>
+    <div id="container">Loading...</div>
+    <script type="text/javascript" src="/bundle.js"></script>
+    <script type="text/javascript">
+    function checkForUpdate () {
+        var request = new XMLHttpRequest();
+        request.open('GET', '/ping', true);
+
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400){
+            // Success!
+            var data = JSON.parse(request.responseText)
+
+            if(data.bundledAt && window.bundledAt != null && data.bundledAt != window.bundledAt) {
+              window.location.reload(true)
+            }
+
+            window.bundledAt = data.bundledAt
+          }
+
+          setTimeout(checkForUpdate, 500)
+        }
+
+        request.onerror = function() {
+          // There was a connection error of some sort, ignore it
+          setTimeout(checkForUpdate, 500)
+        }
+
+        request.send()
+      }
+
+      checkForUpdate()
+    </script>
+  </body>
+</html>

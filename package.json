@@ -1,0 +1,32 @@
+{
+  "name": "lyst",
+  "version": "1.0.0",
+  "description": "Experimental list view",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ben-ng/lyst"
+  },
+  "keywords": [
+    "backbone",
+    "list",
+    "UITableView",
+    "scroll"
+  ],
+  "author": "Ben Ng <me@benng.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ben-ng/lyst/issues"
+  },
+  "homepage": "https://github.com/ben-ng/lyst",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "tape": "^3.0.3"
+  },
+  "devDependencies": {
+    "browserify": "^6.3.2"
+  }
+}
